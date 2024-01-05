@@ -17,7 +17,7 @@ var VendorAuth = async (req, res, next) => {
       // Get Vendor from Token
       req.vendor = await VendorModel.findById(vendorID).select('-password')
 
-      next()
+      next();
     } catch (error) {
       console.log(error)
       return res.status(401).json({ message: "Unauthorized Vendorr" })
