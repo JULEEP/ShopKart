@@ -8,6 +8,7 @@ import {
     otpSend,
     updateVendorPassword,
     loggedvendor,
+    onboardingVendor
 } from "../../Controller/VendorController/vendorController.js";
 
 
@@ -23,5 +24,6 @@ router.post('/login', vendorLogin);
 router.post('/otpsend', otpSend);
 router.post('/update/vendorpassword', updateVendorPassword);
 router.get('/loggedvendor', loggedvendor);
+router.post('/onboardvendor', onboardingVendor);
 
 export default router

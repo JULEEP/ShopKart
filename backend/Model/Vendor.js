@@ -28,6 +28,10 @@ const vendorSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    companyName:{
+        type: String,
+        required: true,
+    },
 },
     {
         timestamps: { createdAt: "created_at", updatedAt: "updated_at" },

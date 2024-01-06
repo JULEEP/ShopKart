@@ -105,4 +105,30 @@ const loggedvendor = asyncHandler(async (req, res) => {
     return res.send({ "vendor": req.vendor })
 })
 
-export { vendorRegistration, otpSend, vendorLogin, updateVendorPassword, loggedvendor }
+//onboarding vendor
+const onboardingVendor = asyncHandler(async (req, res) => {
+    const { firstName, lastName, password, companyName, email } = req.body;
+
+
+    if (firstName && lastName && password && companyName && email) {
+        return res.status(400).json({ message: 'Vendor is already Orboarded.' });
+    }
+
+    // Create a new vendor
+    const newVendor = {
+        vendorName,
+        password,
+        companyName,
+        email,
+    };
+
+    // Add the vendor to the in-memory storage
+    newVendor.save();
+
+    // You may want to hash the password and store it securely in production
+
+    res.json({ message: 'Vendor Onboarded successfully.' });
+});
+
+
+export { vendorRegistration, otpSend, vendorLogin, updateVendorPassword, loggedvendor, onboardingVendor }
